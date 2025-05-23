@@ -28,3 +28,48 @@
 # area — по формуле Герона:
 # s = (a + b + c) / 2
 # area = sqrt(s * (s - a) * (s - b) * (s - c))
+
+from abc import ABC, abstractmethod
+import math
+
+
+class Figure(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+    @abstractmethod
+    def perimeter(self):
+        pass
+
+
+class Circle(Figure):
+    def __init__(self, radius: float):
+        pass
+
+    def area(self):
+        pass
+
+    def perimeter(self):
+        pass
+
+
+class Rectangle(Figure):
+    def __init__(self, a: float, b: float):
+        self.a = a
+        self.b = b
+
+    pass
+
+
+class Triangle(Figure):
+    def __init__(self, a: float, b: float, c: float):
+        # Добавьте проверку, возможно ли построить треугольник с заданными сторонами
+        pass
+
+    def area(self):
+        p = self.perimeter() / 2
+        return math.sqrt(p * (p - self.a) * (p - self.b) * (p - self.c))
+
+    def perimeter(self):
+        return self.a + self.b + self.c
