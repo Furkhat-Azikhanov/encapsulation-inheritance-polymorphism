@@ -9,9 +9,9 @@ class Employee:
     pass
 
 
-class Developer(...):
+class Developer():
     pass
 
 
-class Manager(...):
+class Manager():
     pass
