@@ -1,6 +1,9 @@
-import pytest
-from tasks import Circle, Rectangle, Triangle
 import math
+
+import pytest
+
+from tasks import Circle, Rectangle, Triangle
+
 
 def test_circle():
     c = Circle(1)

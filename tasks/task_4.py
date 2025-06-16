@@ -29,8 +29,8 @@
 # s = (a + b + c) / 2
 # area = sqrt(s * (s - a) * (s - b) * (s - c))
 
-from abc import ABC, abstractmethod
 import math
+from abc import ABC, abstractmethod
 
 
 class Figure(ABC):

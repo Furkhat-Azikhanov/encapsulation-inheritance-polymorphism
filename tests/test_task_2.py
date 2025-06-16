@@ -1,5 +1,7 @@
 import pytest
+
 from tasks import GradeBook
+
 
 def test_add_and_get_average():
     gb = GradeBook()

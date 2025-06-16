@@ -1,5 +1,7 @@
 import pytest
-from tasks import CreditCard, PayPal, CryptoWallet, process_payment
+
+from tasks import CreditCard, CryptoWallet, PayPal, process_payment
+
 
 def test_credit_card_payment(capfd):
     cc = CreditCard()

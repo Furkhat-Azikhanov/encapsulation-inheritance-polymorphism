@@ -1,5 +1,7 @@
 import pytest
-from tasks import Employee, Developer, Manager
+
+from tasks import Developer, Employee, Manager
+
 
 def test_developer_salary():
     dev = Developer(name="Alice", base_salary=100000, bonus=20000)
