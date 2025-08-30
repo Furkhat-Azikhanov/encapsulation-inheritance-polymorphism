@@ -36,39 +36,54 @@ from abc import ABC, abstractmethod
 class Figure(ABC):
     @abstractmethod
     def area(self):
+        """Вычисление площади фигуры"""
         pass
 
     @abstractmethod
     def perimeter(self):
+        """Вычисление периметра фигуры"""
         pass
 
 
 class Circle(Figure):
     def __init__(self, radius: float):
-        pass
+        if radius <= 0:
+            raise ValueError("Радиус должен быть положительным числом")
+        self.radius = radius
 
     def area(self):
-        pass
+        return math.pi * (self.radius ** 2)
 
     def perimeter(self):
-        pass
+        return 2 * math.pi * self.radius
 
 
 class Rectangle(Figure):
-    def __init__(self, a: float, b: float):
-        self.a = a
-        self.b = b
+    def __init__(self, width: float, height: float):
+        if width <= 0 or height <= 0:
+            raise ValueError("Стороны прямоугольника должны быть положительными")
+        self.width = width
+        self.height = height
 
-    pass
+    def area(self):
+        return self.width * self.height
+
+    def perimeter(self):
+        return 2 * (self.width + self.height)
 
 
 class Triangle(Figure):
     def __init__(self, a: float, b: float, c: float):
-        # Добавьте проверку, возможно ли построить треугольник с заданными сторонами
-        pass
+        # Проверяем условие существования треугольника:
+        # сумма любых двух сторон > третьей
+        if a + b <= c or a + c <= b or b + c <= a:
+            raise ValueError("Треугольник с такими сторонами не существует")
+        self.a = a
+        self.b = b
+        self.c = c
 
     def area(self):
-        p = self.perimeter() / 2
+        p = self.perimeter() / 2  # полупериметр
         return math.sqrt(p * (p - self.a) * (p - self.b) * (p - self.c))
 
     def perimeter(self):
